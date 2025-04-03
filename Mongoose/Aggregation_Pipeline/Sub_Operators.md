@@ -124,5 +124,12 @@ their descriptions and examples.
 | `$setIntersection` | `{ $setIntersection: [ "$array1", "$array2" ] }` | Returns the intersection of multiple sets.   | `{ $setIntersection: [ "$tags1", "$tags2" ] }` |
 | `$setDifference`   | `{ $setDifference: [ "$array1", "$array2" ] }`   | Returns the difference between two sets.     | `{ $setDifference: [ "$tags1", "$tags2" ] }`   |
 
+# Regex Operators
+
+| Operator   | Syntax                                     | Description                                       | Example                                                                         |
+| ---------- | ------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `$regex`   | `{ "$regex": "pattern" }`                  | Matches a string against a regex pattern.         | `{ "name": { "$regex": "^A" } }` (Names starting with A)                        |
+| `$options` | `{ "$regex": "pattern", "$options": "i" }` | Specifies regex options (e.g., case-insensitive). | `{ "name": { "$regex": "john", "$options": "i" } }` (Matches "John" and "john") |
+
 This document provides a structured overview of MongoDB aggregation
 sub-operators, making it easier to understand and reference. 🚀
