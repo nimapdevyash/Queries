@@ -41,11 +41,21 @@
 
 ## Array Operators
 
-| Operator       | Description                                          | Example                             |
-| -------------- | ---------------------------------------------------- | ----------------------------------- |
-| `$size`        | Returns the number of elements in an array.          | `{ $size: "$tags" }`                |
-| `$slice`       | Returns a subset of an array.                        | `{ $slice: [ "$items", 2, 3 ] }`    |
-| `$arrayElemAt` | Returns the element at a specific index in an array. | `{ $arrayElemAt: [ "$items", 1 ] }` |
+| Operator            | Description                                                       | Example                                                                                                                            |
+| ------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **`$size`**         | Returns the number of elements in an array.                       | `{ $size: "$tags" }` → Returns the length of `tags` array.                                                                         |
+| **`$slice`**        | Returns a subset of an array.                                     | `{ $slice: ["$items", 3] }` → Returns the first 3 elements from `items`.                                                           |
+| **`$arrayElemAt`**  | Returns the element at a specified index.                         | `{ $arrayElemAt: ["$products", 1] }` → Returns the second element of `products`.                                                   |
+| **`$concatArrays`** | Merges multiple arrays into a single array.                       | `{ $concatArrays: ["$array1", "$array2"] }` → Merges `array1` and `array2`.                                                        |
+| **`$filter`**       | Returns an array containing only elements that match a condition. | `{ $filter: { input: "$grades", as: "grade", cond: { $gte: ["$$grade", 75] } } }` → Filters `grades` to include only values >= 75. |
+| **`$map`**          | Applies a transformation to each element of an array.             | `{ $map: { input: "$prices", as: "price", in: { $multiply: ["$$price", 0.9] } } }` → Applies a 10% discount on `prices`.           |
+| **`$reduce`**       | Condenses an array into a single value using an accumulator.      | `{ $reduce: { input: "$numbers", initialValue: 0, in: { $add: ["$$value", "$$this"] } } }` → Computes the sum of `numbers`.        |
+| **`$reverseArray`** | Reverses the order of elements in an array.                       | `{ $reverseArray: "$names" }` → Returns `names` array in reverse order.                                                            |
+| **`$zip`**          | Merges elements from multiple arrays based on their index.        | `{ $zip: { inputs: ["$arr1", "$arr2"] } }` → Combines `arr1` and `arr2` element-wise.                                              |
+| **`$first`**        | Returns the first element of an array.                            | `{ $first: "$items" }` → Returns the first item of `items`.                                                                        |
+| **`$last`**         | Returns the last element of an array.                             | `{ $last: "$items" }` → Returns the last item of `items`.                                                                          |
+| **`$range`**        | Generates an array of numbers within a range.                     | `{ $range: [0, 10, 2] }` → Returns `[0, 2, 4, 6, 8]`.                                                                              |
+| **`$in`**           | Checks if a value exists in an array.                             | `{ $in: ["apple", "$fruits"] }` → Checks if `apple` is in `fruits` array.                                                          |
 
 ## Type Conversion Operators
 
