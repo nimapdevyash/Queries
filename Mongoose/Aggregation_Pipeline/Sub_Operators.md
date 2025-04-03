@@ -2,14 +2,14 @@
 
 ## Comparison Operators
 
-| Operator | Syntax                              | Description                                                          | Example                      |
-| -------- | ----------------------------------- | -------------------------------------------------------------------- | ---------------------------- |
-| `$eq`    | `{ $eq: [ "$fieldName", value ] }`  | Checks if a field is equal to a specific value.                      | `{ $eq: [ "$price", 100 ] }` |
-| `$ne`    | `{ $ne: [ "$fieldName", value ] }`  | Checks if a field is not equal to a specific value.                  | `{ $ne: [ "$price", 100 ] }` |
-| `$gt`    | `{ $gt: [ "$fieldName", value ] }`  | Checks if a field's value is greater than a given value.             | `{ $gt: [ "$price", 50 ] }`  |
-| `$gte`   | `{ $gte: [ "$fieldName", value ] }` | Checks if a field's value is greater than or equal to a given value. | `{ $gte: [ "$price", 50 ] }` |
-| `$lt`    | `{ $lt: [ "$fieldName", value ] }`  | Checks if a field's value is less than a given value.                | `{ $lt: [ "$price", 50 ] }`  |
-| `$lte`   | `{ $lte: [ "$fieldName", value ] }` | Checks if a field's value is less than or equal to a given value.    | `{ $lte: [ "$price", 50 ] }` |
+| Operator | Syntax                          | Description                                                          | Example                      |
+| -------- | ------------------------------- | -------------------------------------------------------------------- | ---------------------------- |
+| `$eq`    | `{ $eq: [ "$field", value ] }`  | Checks if a field is equal to a specific value.                      | `{ $eq: [ "$price", 100 ] }` |
+| `$ne`    | `{ $ne: [ "$field", value ] }`  | Checks if a field is not equal to a specific value.                  | `{ $ne: [ "$price", 100 ] }` |
+| `$gt`    | `{ $gt: [ "$field", value ] }`  | Checks if a field's value is greater than a given value.             | `{ $gt: [ "$price", 50 ] }`  |
+| `$gte`   | `{ $gte: [ "$field", value ] }` | Checks if a field's value is greater than or equal to a given value. | `{ $gte: [ "$price", 50 ] }` |
+| `$lt`    | `{ $lt: [ "$field", value ] }`  | Checks if a field's value is less than a given value.                | `{ $lt: [ "$price", 50 ] }`  |
+| `$lte`   | `{ $lte: [ "$field", value ] }` | Checks if a field's value is less than or equal to a given value.    | `{ $lte: [ "$price", 50 ] }` |
 
 ## Logical Operators
 
@@ -22,22 +22,22 @@
 
 ## Arithmetic Operators
 
-| Operator    | Syntax                                   | Description                        | Example                          |
-| ----------- | ---------------------------------------- | ---------------------------------- | -------------------------------- |
-| `$add`      | `{ $add: [ "$fieldName", value ] }`      | Adds numbers together.             | `{ $add: [ "$price", 10 ] }`     |
-| `$subtract` | `{ $subtract: [ "$fieldName", value ] }` | Subtracts one number from another. | `{ $subtract: [ "$price", 5 ] }` |
-| `$multiply` | `{ $multiply: [ "$fieldName", value ] }` | Multiplies numbers.                | `{ $multiply: [ "$price", 2 ] }` |
-| `$divide`   | `{ $divide: [ "$fieldName", value ] }`   | Divides one number by another.     | `{ $divide: [ "$price", 2 ] }`   |
-| `$mod`      | `{ $mod: [ "$fieldName", value ] }`      | Returns the remainder of division. | `{ $mod: [ "$price", 2 ] }`      |
+| Operator    | Syntax                               | Description                        | Example                          |
+| ----------- | ------------------------------------ | ---------------------------------- | -------------------------------- |
+| `$add`      | `{ $add: [ "$field", value ] }`      | Adds numbers together.             | `{ $add: [ "$price", 10 ] }`     |
+| `$subtract` | `{ $subtract: [ "$field", value ] }` | Subtracts one number from another. | `{ $subtract: [ "$price", 5 ] }` |
+| `$multiply` | `{ $multiply: [ "$field", value ] }` | Multiplies numbers.                | `{ $multiply: [ "$price", 2 ] }` |
+| `$divide`   | `{ $divide: [ "$field", value ] }`   | Divides one number by another.     | `{ $divide: [ "$price", 2 ] }`   |
+| `$mod`      | `{ $mod: [ "$field", value ] }`      | Returns the remainder of division. | `{ $mod: [ "$price", 2 ] }`      |
 
 ## String Operators
 
 | Operator    | Syntax                                               | Description                        | Example                                           |
 | ----------- | ---------------------------------------------------- | ---------------------------------- | ------------------------------------------------- |
 | `$concat`   | `{ $concat: [ "$field1", "separator", "$field2" ] }` | Concatenates multiple strings.     | `{ $concat: [ "$firstName", " ", "$lastName" ] }` |
-| `$substrCP` | `{ $substrCP: [ "$fieldName", start, length ] }`     | Extracts a substring (UTF-8 safe). | `{ $substrCP: [ "$name", 0, 3 ] }`                |
-| `$toUpper`  | `{ $toUpper: "$fieldName" }`                         | Converts a string to uppercase.    | `{ $toUpper: "$name" }`                           |
-| `$toLower`  | `{ $toLower: "$fieldName" }`                         | Converts a string to lowercase.    | `{ $toLower: "$name" }`                           |
+| `$substrCP` | `{ $substrCP: [ "$field", start, length ] }`         | Extracts a substring (UTF-8 safe). | `{ $substrCP: [ "$name", 0, 3 ] }`                |
+| `$toUpper`  | `{ $toUpper: "$field" }`                             | Converts a string to uppercase.    | `{ $toUpper: "$name" }`                           |
+| `$toLower`  | `{ $toLower: "$field" }`                             | Converts a string to lowercase.    | `{ $toLower: "$name" }`                           |
 
 ## Array Operators
 
@@ -47,12 +47,12 @@ their descriptions and examples.
 
 ### 📌 Array Query Operators
 
-| Operator     | Syntax                                     | Description                                                                             | Example                                                                          |
-| ------------ | ------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `$in`        | `{ $in: [ value, "$field" ] }`             | Checks if **the specified value** exists inside the **array field**.                    | `{ $set: { hasLaptop: { $in: ["Laptop", "$items"] } } }`                         |
-| `$size`      | `{ $size: "$field" }`                      | Returns the **number of elements** in the array field.                                  | `{ $set: { itemCount: { $size: "$items" } } }`                                   |
-| `$all`       | `{ $all: [ "$field", [ valuesArray ] ] }`  | Checks if **all specified values** exist inside the **array field**.                    | `{ $match: { tags: { $all: ["Laptop", "Mouse"] } } }`                            |
-| `$elemMatch` | `{ $elemMatch: { field: { condition } } }` | Matches documents where **at least one element** in the array satisfies all conditions. | `{ $match: { reviews: { $elemMatch: { rating: { $gte: 4 }, user: "John" } } } }` |
+| Operator     | Syntax                                                                               | Description                                                                             | Example                                                                          |
+| ------------ | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `$in`        | `{ $in: [ value, "$field which resolves to an array" ] }`                            | Checks if **the specified value** exists inside the **array field**.                    | `{ $set: { hasLaptop: { $in: ["Laptop", "$items"] } } }`                         |
+| `$size`      | `{ $size: "$field" }`                                                                | Returns the **number of elements** in the array field.                                  | `{ $set: { itemCount: { $size: "$items" } } }`                                   |
+| `$all`       | `{ $all: [ "$field which resolves to an array", [ array of values to look for ] ] }` | Checks if **all specified values** exist inside the **array field**.                    | `{ $match: { tags: { $all: ["Laptop", "Mouse"] } } }`                            |
+| `$elemMatch` | `{ $elemMatch: { field: { condition } } }`                                           | Matches documents where **at least one element** in the array satisfies all conditions. | `{ $match: { reviews: { $elemMatch: { rating: { $gte: 4 }, user: "John" } } } }` |
 
 ### 📌 Array Element Manipulation Operators
 
