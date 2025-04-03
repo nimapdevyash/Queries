@@ -56,10 +56,11 @@
 
 ## Conditional Operators
 
-| Operator  | Description                                            | Example                                                                           |
-| --------- | ------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| `$cond`   | If-else logic for conditional expressions.             | `{ $cond: { if: { $gt: [ "$price", 100 ] }, then: "expensive", else: "cheap" } }` |
-| `$ifNull` | Returns a default value if a field is null or missing. | `{ $ifNull: [ "$discount", 0 ] }`                                                 |
+| Operator  | Description                                            | Example                                                                                            |
+| --------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| `$cond`   | If-else logic for conditional expressions.             | `{ $cond: { if: { $gt: [ "$price", 100 ] }, then: "expensive", else: "cheap" } }`                  |
+| `$ifNull` | Returns a default value if a field is null or missing. | `{ $ifNull: [ "$discount", 0 ] }`                                                                  |
+| `$switch` | Multiple if-else conditions (like switch-case).        | `{ $switch: { branches: [{ case: { $gte: [ "$age", 18 ] }, then: "Adult" }], default: "Minor" } }` |
 
 ## Date Operators
 
