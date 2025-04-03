@@ -47,12 +47,11 @@ their descriptions and examples.
 
 ### 📌 Array Query Operators
 
-| Operator     | Syntax                                                                               | Description                                                                             | Example                                                                          |
-| ------------ | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `$in`        | `{ $in: [ value, "$field which resolves to an array" ] }`                            | Checks if **the specified value** exists inside the **array field**.                    | `{ $set: { hasLaptop: { $in: ["Laptop", "$items"] } } }`                         |
-| `$size`      | `{ $size: "$field" }`                                                                | Returns the **number of elements** in the array field.                                  | `{ $set: { itemCount: { $size: "$items" } } }`                                   |
-| `$all`       | `{ $all: [ "$field which resolves to an array", [ array of values to look for ] ] }` | Checks if **all specified values** exist inside the **array field**.                    | `{ $match: { tags: { $all: ["Laptop", "Mouse"] } } }`                            |
-| `$elemMatch` | `{ $elemMatch: { field: { condition } } }`                                           | Matches documents where **at least one element** in the array satisfies all conditions. | `{ $match: { reviews: { $elemMatch: { rating: { $gte: 4 }, user: "John" } } } }` |
+| Operator     | Syntax                                                    | Description                                                                             | Example                                                                          |
+| ------------ | --------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `$in`        | `{ $in: [ value, "$field which resolves to an array" ] }` | Checks if **the specified value** exists inside the **array field**.                    | `{ $set: { hasLaptop: { $in: ["Laptop", "$items"] } } }`                         |
+| `$size`      | `{ $size: "$field" }`                                     | Returns the **number of elements** in the array field.                                  | `{ $set: { itemCount: { $size: "$items" } } }`                                   |
+| `$elemMatch` | `{ $elemMatch: { field: { condition } } }`                | Matches documents where **at least one element** in the array satisfies all conditions. | `{ $match: { reviews: { $elemMatch: { rating: { $gte: 4 }, user: "John" } } } }` |
 
 ### 📌 Array Element Manipulation Operators
 
