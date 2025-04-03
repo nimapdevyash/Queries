@@ -2,42 +2,42 @@
 
 ## Comparison Operators
 
-| Operator | Description                                            | Example                      |
-| -------- | ------------------------------------------------------ | ---------------------------- |
-| `$eq`    | Checks if values are equal.                            | `{ $eq: [ "$price", 100 ] }` |
-| `$ne`    | Checks if values are not equal.                        | `{ $ne: [ "$price", 100 ] }` |
-| `$gt`    | Checks if a value is greater than another.             | `{ $gt: [ "$price", 50 ] }`  |
-| `$gte`   | Checks if a value is greater than or equal to another. | `{ $gte: [ "$price", 50 ] }` |
-| `$lt`    | Checks if a value is less than another.                | `{ $lt: [ "$price", 50 ] }`  |
-| `$lte`   | Checks if a value is less than or equal to another.    | `{ $lte: [ "$price", 50 ] }` |
+| Operator | Syntax                              | Description                                                          | Example                      |
+| -------- | ----------------------------------- | -------------------------------------------------------------------- | ---------------------------- |
+| `$eq`    | `{ $eq: [ "$fieldName", value ] }`  | Checks if a field is equal to a specific value.                      | `{ $eq: [ "$price", 100 ] }` |
+| `$ne`    | `{ $ne: [ "$fieldName", value ] }`  | Checks if a field is not equal to a specific value.                  | `{ $ne: [ "$price", 100 ] }` |
+| `$gt`    | `{ $gt: [ "$fieldName", value ] }`  | Checks if a field's value is greater than a given value.             | `{ $gt: [ "$price", 50 ] }`  |
+| `$gte`   | `{ $gte: [ "$fieldName", value ] }` | Checks if a field's value is greater than or equal to a given value. | `{ $gte: [ "$price", 50 ] }` |
+| `$lt`    | `{ $lt: [ "$fieldName", value ] }`  | Checks if a field's value is less than a given value.                | `{ $lt: [ "$price", 50 ] }`  |
+| `$lte`   | `{ $lte: [ "$fieldName", value ] }` | Checks if a field's value is less than or equal to a given value.    | `{ $lte: [ "$price", 50 ] }` |
 
 ## Logical Operators
 
-| Operator | Description                                      | Example                                                                      |
-| -------- | ------------------------------------------------ | ---------------------------------------------------------------------------- |
-| `$and`   | Returns true if all conditions are true.         | `{ $and: [ { "$gt": [ "$price", 50 ] }, { "$lt": [ "$price", 200 ] } ] }`    |
-| `$or`    | Returns true if at least one condition is true.  | `{ $or: [ { "$eq": [ "$status", "A" ] }, { "$eq": [ "$status", "B" ] } ] }`  |
-| `$not`   | Inverts the Boolean result of a condition.       | `{ $not: { "$eq": [ "$status", "A" ] } }`                                    |
-| `$nor`   | Returns true if none of the conditions are true. | `{ $nor: [ { "$eq": [ "$status", "A" ] }, { "$eq": [ "$status", "B" ] } ] }` |
+| Operator | Syntax                                         | Description                                      | Example                                                                      |
+| -------- | ---------------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------- |
+| `$and`   | `{ $and: [ { condition1 }, { condition2 } ] }` | Returns true if all conditions are true.         | `{ $and: [ { "$gt": [ "$price", 50 ] }, { "$lt": [ "$price", 200 ] } ] }`    |
+| `$or`    | `{ $or: [ { condition1 }, { condition2 } ] }`  | Returns true if at least one condition is true.  | `{ $or: [ { "$eq": [ "$status", "A" ] }, { "$eq": [ "$status", "B" ] } ] }`  |
+| `$not`   | `{ $not: { condition } }`                      | Inverts the Boolean result of a condition.       | `{ $not: { "$eq": [ "$status", "A" ] } }`                                    |
+| `$nor`   | `{ $nor: [ { condition1 }, { condition2 } ] }` | Returns true if none of the conditions are true. | `{ $nor: [ { "$eq": [ "$status", "A" ] }, { "$eq": [ "$status", "B" ] } ] }` |
 
 ## Arithmetic Operators
 
-| Operator    | Description                        | Example                          |
-| ----------- | ---------------------------------- | -------------------------------- |
-| `$add`      | Adds numbers together.             | `{ $add: [ "$price", 10 ] }`     |
-| `$subtract` | Subtracts one number from another. | `{ $subtract: [ "$price", 5 ] }` |
-| `$multiply` | Multiplies numbers.                | `{ $multiply: [ "$price", 2 ] }` |
-| `$divide`   | Divides one number by another.     | `{ $divide: [ "$price", 2 ] }`   |
-| `$mod`      | Returns the remainder of division. | `{ $mod: [ "$price", 2 ] }`      |
+| Operator    | Syntax                                   | Description                        | Example                          |
+| ----------- | ---------------------------------------- | ---------------------------------- | -------------------------------- |
+| `$add`      | `{ $add: [ "$fieldName", value ] }`      | Adds numbers together.             | `{ $add: [ "$price", 10 ] }`     |
+| `$subtract` | `{ $subtract: [ "$fieldName", value ] }` | Subtracts one number from another. | `{ $subtract: [ "$price", 5 ] }` |
+| `$multiply` | `{ $multiply: [ "$fieldName", value ] }` | Multiplies numbers.                | `{ $multiply: [ "$price", 2 ] }` |
+| `$divide`   | `{ $divide: [ "$fieldName", value ] }`   | Divides one number by another.     | `{ $divide: [ "$price", 2 ] }`   |
+| `$mod`      | `{ $mod: [ "$fieldName", value ] }`      | Returns the remainder of division. | `{ $mod: [ "$price", 2 ] }`      |
 
 ## String Operators
 
-| Operator    | Description                        | Example                                           |
-| ----------- | ---------------------------------- | ------------------------------------------------- |
-| `$concat`   | Concatenates multiple strings.     | `{ $concat: [ "$firstName", " ", "$lastName" ] }` |
-| `$substrCP` | Extracts a substring (UTF-8 safe). | `{ $substrCP: [ "$name", 0, 3 ] }`                |
-| `$toUpper`  | Converts a string to uppercase.    | `{ $toUpper: "$name" }`                           |
-| `$toLower`  | Converts a string to lowercase.    | `{ $toLower: "$name" }`                           |
+| Operator    | Syntax                                               | Description                        | Example                                           |
+| ----------- | ---------------------------------------------------- | ---------------------------------- | ------------------------------------------------- |
+| `$concat`   | `{ $concat: [ "$field1", "separator", "$field2" ] }` | Concatenates multiple strings.     | `{ $concat: [ "$firstName", " ", "$lastName" ] }` |
+| `$substrCP` | `{ $substrCP: [ "$fieldName", start, length ] }`     | Extracts a substring (UTF-8 safe). | `{ $substrCP: [ "$name", 0, 3 ] }`                |
+| `$toUpper`  | `{ $toUpper: "$fieldName" }`                         | Converts a string to uppercase.    | `{ $toUpper: "$name" }`                           |
+| `$toLower`  | `{ $toLower: "$fieldName" }`                         | Converts a string to lowercase.    | `{ $toLower: "$name" }`                           |
 
 ## Array Operators
 
@@ -47,67 +47,82 @@ their descriptions and examples.
 
 ### 📌 Array Query Operators
 
-| Operator     | Description                                                                            | Example                                                              |
-| ------------ | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `$size`      | Returns the number of elements in an array.                                            | `{ $size: "$items" }`                                                |
-| `$all`       | Matches arrays that contain all specified elements.                                    | `{ tags: { $all: ["mongodb", "database"] } }`                        |
-| `$elemMatch` | Matches documents where at least one array element satisfies all specified conditions. | `{ reviews: { $elemMatch: { rating: { $gte: 4 }, user: "John" } } }` |
+| Operator     | Syntax                                     | Description                                                                             | Example                                                                          |
+| ------------ | ------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `$in`        | `{ $in: [ value, "$field" ] }`             | Checks if **the specified value** exists inside the **array field**.                    | `{ $set: { hasLaptop: { $in: ["Laptop", "$items"] } } }`                         |
+| `$size`      | `{ $size: "$field" }`                      | Returns the **number of elements** in the array field.                                  | `{ $set: { itemCount: { $size: "$items" } } }`                                   |
+| `$all`       | `{ $all: [ "$field", [ valuesArray ] ] }`  | Checks if **all specified values** exist inside the **array field**.                    | `{ $match: { tags: { $all: ["Laptop", "Mouse"] } } }`                            |
+| `$elemMatch` | `{ $elemMatch: { field: { condition } } }` | Matches documents where **at least one element** in the array satisfies all conditions. | `{ $match: { reviews: { $elemMatch: { rating: { $gte: 4 }, user: "John" } } } }` |
 
 ### 📌 Array Element Manipulation Operators
 
-| Operator    | Description                                                    | Example                                               |
-| ----------- | -------------------------------------------------------------- | ----------------------------------------------------- |
-| `$push`     | Adds an element to an array.                                   | `{ $push: { items: "Tablet" } }`                      |
-| `$pop`      | Removes the first (`-1`) or last (`1`) element from an array.  | `{ $pop: { items: 1 } }`                              |
-| `$pull`     | Removes all matching elements from an array.                   | `{ $pull: { tags: "obsolete" } }`                     |
-| `$pullAll`  | Removes all occurrences of the specified values.               | `{ $pullAll: { tags: ["deprecated", "old"] } }`       |
-| `$addToSet` | Adds an element to an array only if it does not already exist. | `{ $addToSet: { tags: "uniqueTag" } }`                |
-| `$set`      | Updates a field, replacing an array entirely.                  | `{ $set: { items: ["NewItem1", "NewItem2"] } }`       |
-| `$each`     | Used with `$push` or `$addToSet` to add multiple elements.     | `{ $push: { items: { $each: ["Item1", "Item2"] } } }` |
+| Operator    | Syntax                                      | Description                                                    | Example                                               |
+| ----------- | ------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
+| `$push`     | `{ $push: { field: value } }`               | Adds an element to an array.                                   | `{ $push: { items: "Tablet" } }`                      |
+| `$pop`      | `{ $pop: { field: <1 or -1> } }`            | Removes the first (`-1`) or last (`1`) element from an array.  | `{ $pop: { items: 1 } }`                              |
+| `$pull`     | `{ $pull: { field: condition } }`           | Removes all matching elements from an array.                   | `{ $pull: { tags: "obsolete" } }`                     |
+| `$pullAll`  | `{ $pullAll: { field: [values] } }`         | Removes all occurrences of the specified values.               | `{ $pullAll: { tags: ["deprecated", "old"] } }`       |
+| `$addToSet` | `{ $addToSet: { field: value } }`           | Adds an element to an array only if it does not already exist. | `{ $addToSet: { tags: "uniqueTag" } }`                |
+| `$set`      | `{ $set: { field: newValue } }`             | Updates a field, replacing an array entirely.                  | `{ $set: { items: ["NewItem1", "NewItem2"] } }`       |
+| `$each`     | `{ $push: { field: { $each: [values] } } }` | Used with `$push` or `$addToSet` to add multiple elements.     | `{ $push: { items: { $each: ["Item1", "Item2"] } } }` |
 
 ### 📌 Array Aggregation Operators
 
-| Operator        | Description                                                        | Example                                                                                        |
-| --------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| `$arrayElemAt`  | Returns the element at the specified index in an array.            | `{ $arrayElemAt: ["$items", 1] }`                                                              |
-| `$concatArrays` | Merges multiple arrays into one.                                   | `{ $concatArrays: ["$items", "$extras"] }`                                                     |
-| `$filter`       | Returns an array with elements that satisfy a specified condition. | `{ $filter: { input: "$items", as: "item", cond: { $gt: ["$$item.price", 100] } } }`           |
-| `$slice`        | Returns a subset of an array.                                      | `{ $slice: ["$items", 2] }` (first 2 elements)                                                 |
-| `$reverseArray` | Reverses the order of an array.                                    | `{ $reverseArray: "$items" }`                                                                  |
-| `$reduce`       | Processes an array to compute a single value.                      | `{ $reduce: { input: "$items", initialValue: 0, in: { $add: ["$$value", "$$this.price"] } } }` |
-| `$map`          | Transforms each element in an array.                               | `{ $map: { input: "$items", as: "item", in: "$item.price" } }`                                 |
-| `$zip`          | Merges arrays by combining elements at corresponding indexes.      | `{ $zip: { inputs: ["$array1", "$array2"] } }`                                                 |
+| Operator        | Syntax                                                               | Description                                                        | Example                                                                                        |
+| --------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| `$arrayElemAt`  | `{ $arrayElemAt: [array, index] }`                                   | Returns the element at the specified index in an array.            | `{ $arrayElemAt: ["$items", 1] }`                                                              |
+| `$concatArrays` | `{ $concatArrays: [array1, array2, ...] }`                           | Merges multiple arrays into one.                                   | `{ $concatArrays: ["$items", "$extras"] }`                                                     |
+| `$filter`       | `{ $filter: { input: array, as: var, cond: condition } }`            | Returns an array with elements that satisfy a specified condition. | `{ $filter: { input: "$items", as: "item", cond: { $gt: ["$$item.price", 100] } } }`           |
+| `$slice`        | `{ $slice: [array, n] }` or `{ $slice: [array, start, count] }`      | Returns a subset of an array.                                      | `{ $slice: ["$items", 2] }` (first 2 elements)                                                 |
+| `$reverseArray` | `{ $reverseArray: array }`                                           | Reverses the order of an array.                                    | `{ $reverseArray: "$items" }`                                                                  |
+| `$reduce`       | `{ $reduce: { input: array, initialValue: value, in: expression } }` | Processes an array to compute a single value.                      | `{ $reduce: { input: "$items", initialValue: 0, in: { $add: ["$$value", "$$this.price"] } } }` |
+| `$map`          | `{ $map: { input: array, as: var, in: expression } }`                | Transforms each element in an array.                               | `{ $map: { input: "$items", as: "item", in: "$$item.price" } }`                                |
+| `$zip`          | `{ $zip: { inputs: [array1, array2, ...] } }`                        | Merges arrays by combining elements at corresponding indexes.      | `{ $zip: { inputs: ["$array1", "$array2"] } }`                                                 |
 
 ## Type Conversion Operators
 
-| Operator    | Description                     | Example                   |
-| ----------- | ------------------------------- | ------------------------- |
-| `$toString` | Converts a value to a string.   | `{ $toString: "$price" }` |
-| `$toInt`    | Converts a value to an integer. | `{ $toInt: "$price" }`    |
+| Operator     | Syntax                  | Description                            | Example                     |
+| ------------ | ----------------------- | -------------------------------------- | --------------------------- |
+| `$toString`  | `{ $toString: value }`  | Converts a value to a string.          | `{ $toString: "$price" }`   |
+| `$toInt`     | `{ $toInt: value }`     | Converts a value to an integer.        | `{ $toInt: "$price" }`      |
+| `$toDouble`  | `{ $toDouble: value }`  | Converts a value to a double (float).  | `{ $toDouble: "$rating" }`  |
+| `$toDecimal` | `{ $toDecimal: value }` | Converts a value to a decimal.         | `{ $toDecimal: "$amount" }` |
+| `$toBool`    | `{ $toBool: value }`    | Converts a value to a boolean.         | `{ $toBool: "$isActive" }`  |
+| `$toDate`    | `{ $toDate: value }`    | Converts a value to a date.            | `{ $toDate: "$timestamp" }` |
+| `$toLong`    | `{ $toLong: value }`    | Converts a value to a 64-bit integer.  | `{ $toLong: "$bigNumber" }` |
+| `$type`      | `{ $type: value }`      | Returns the BSON data type of a value. | `{ $type: "$someField" }`   |
 
 ## Conditional Operators
 
-| Operator  | Description                                            | Example                                                                                            |
-| --------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| `$cond`   | If-else logic for conditional expressions.             | `{ $cond: { if: { $gt: [ "$price", 100 ] }, then: "expensive", else: "cheap" } }`                  |
-| `$ifNull` | Returns a default value if a field is null or missing. | `{ $ifNull: [ "$discount", 0 ] }`                                                                  |
-| `$switch` | Multiple if-else conditions (like switch-case).        | `{ $switch: { branches: [{ case: { $gte: [ "$age", 18 ] }, then: "Adult" }], default: "Minor" } }` |
+| Operator  | Syntax                                                                          | Description                                            | Example                                                                                            |
+| --------- | ------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| `$cond`   | `{ $cond: { if: condition, then: value, else: value } }`                        | If-else logic for conditional expressions.             | `{ $cond: { if: { $gt: [ "$price", 100 ] }, then: "expensive", else: "cheap" } }`                  |
+| `$ifNull` | `{ $ifNull: [ field, defaultValue ] }`                                          | Returns a default value if a field is null or missing. | `{ $ifNull: [ "$discount", 0 ] }`                                                                  |
+| `$switch` | `{ $switch: { branches: [{ case: condition, then: value }], default: value } }` | Multiple if-else conditions (like switch-case).        | `{ $switch: { branches: [{ case: { $gte: [ "$age", 18 ] }, then: "Adult" }], default: "Minor" } }` |
 
 ## Date Operators
 
-| Operator        | Description                            | Example                                                         |
-| --------------- | -------------------------------------- | --------------------------------------------------------------- |
-| `$dateToString` | Converts a date to a formatted string. | `{ $dateToString: { format: "%Y-%m-%d", date: "$orderDate" } }` |
-| `$year`         | Extracts the year from a date.         | `{ $year: "$orderDate" }`                                       |
-| `$month`        | Extracts the month from a date.        | `{ $month: "$orderDate" }`                                      |
+| Operator          | Syntax                                                       | Description                                             | Example                                                         |
+| ----------------- | ------------------------------------------------------------ | ------------------------------------------------------- | --------------------------------------------------------------- |
+| `$dateToString`   | `{ $dateToString: { format: "formatString", date: field } }` | Converts a date to a formatted string.                  | `{ $dateToString: { format: "%Y-%m-%d", date: "$orderDate" } }` |
+| `$year`           | `{ $year: field }`                                           | Extracts the year from a date.                          | `{ $year: "$orderDate" }`                                       |
+| `$month`          | `{ $month: field }`                                          | Extracts the month from a date.                         | `{ $month: "$orderDate" }`                                      |
+| `$dayOfMonth`     | `{ $dayOfMonth: field }`                                     | Extracts the day of the month.                          | `{ $dayOfMonth: "$orderDate" }`                                 |
+| `$hour`           | `{ $hour: field }`                                           | Extracts the hour from a date.                          | `{ $hour: "$orderDate" }`                                       |
+| `$minute`         | `{ $minute: field }`                                         | Extracts the minute from a date.                        | `{ $minute: "$orderDate" }`                                     |
+| `$second`         | `{ $second: field }`                                         | Extracts the second from a date.                        | `{ $second: "$orderDate" }`                                     |
+| `$millisecond`    | `{ $millisecond: field }`                                    | Extracts the milliseconds from a date.                  | `{ $millisecond: "$orderDate" }`                                |
+| `$dayOfWeek`      | `{ $dayOfWeek: field }`                                      | Returns the day of the week (1 = Sunday, 7 = Saturday). | `{ $dayOfWeek: "$orderDate" }`                                  |
+| `$week`           | `{ $week: field }`                                           | Returns the week number of the year.                    | `{ $week: "$orderDate" }`                                       |
+| `$dateFromString` | `{ $dateFromString: { dateString: field } }`                 | Converts a formatted string to a date.                  | `{ $dateFromString: { dateString: "2025-04-03T10:15:30Z" } }`   |
 
 ## Set Operators
 
-| Operator           | Description                                  | Example                                        |
-| ------------------ | -------------------------------------------- | ---------------------------------------------- |
-| `$setUnion`        | Returns the union of multiple sets (arrays). | `{ $setUnion: [ "$tags1", "$tags2" ] }`        |
-| `$setIntersection` | Returns the intersection of multiple sets.   | `{ $setIntersection: [ "$tags1", "$tags2" ] }` |
-| `$setDifference`   | Returns the difference between two sets.     | `{ $setDifference: [ "$tags1", "$tags2" ] }`   |
+| Operator           | Syntax                                           | Description                                  | Example                                        |
+| ------------------ | ------------------------------------------------ | -------------------------------------------- | ---------------------------------------------- |
+| `$setUnion`        | `{ $setUnion: [ "$array1", "$array2", ... ] }`   | Returns the union of multiple sets (arrays). | `{ $setUnion: [ "$tags1", "$tags2" ] }`        |
+| `$setIntersection` | `{ $setIntersection: [ "$array1", "$array2" ] }` | Returns the intersection of multiple sets.   | `{ $setIntersection: [ "$tags1", "$tags2" ] }` |
+| `$setDifference`   | `{ $setDifference: [ "$array1", "$array2" ] }`   | Returns the difference between two sets.     | `{ $setDifference: [ "$tags1", "$tags2" ] }`   |
 
 This document provides a structured overview of MongoDB aggregation
 sub-operators, making it easier to understand and reference. 🚀
