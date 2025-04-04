@@ -47,23 +47,21 @@ their descriptions and examples.
 
 ### 📌 Array Query Operators
 
-| Operator     | Syntax                                                    | Description                                                                             | Example                                                                          |
-| ------------ | --------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `$in`        | `{ $in: [ value, "$field which resolves to an array" ] }` | Checks if **the specified value** exists inside the **array field**.                    | `{ $set: { hasLaptop: { $in: ["Laptop", "$items"] } } }`                         |
-| `$size`      | `{ $size: "$field" }`                                     | Returns the **number of elements** in the array field.                                  | `{ $set: { itemCount: { $size: "$items" } } }`                                   |
-| `$elemMatch` | `{ $elemMatch: { field: { condition } } }`                | Matches documents where **at least one element** in the array satisfies all conditions. | `{ $match: { reviews: { $elemMatch: { rating: { $gte: 4 }, user: "John" } } } }` |
+| Operator | Syntax                                                    | Description                                                          | Example                                                  |
+| -------- | --------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------- |
+| `$in`    | `{ $in: [ value, "$field which resolves to an array" ] }` | Checks if **the specified value** exists inside the **array field**. | `{ $set: { hasLaptop: { $in: ["Laptop", "$items"] } } }` |
+| `$size`  | `{ $size: "$field" }`                                     | Returns the **number of elements** in the array field.               | `{ $set: { itemCount: { $size: "$items" } } }`           |
 
 ### 📌 Array Element Manipulation Operators
 
-| Operator    | Syntax                                      | Description                                                    | Example                                               |
-| ----------- | ------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
-| `$push`     | `{ $push: { field: value } }`               | Adds an element to an array.                                   | `{ $push: { items: "Tablet" } }`                      |
-| `$pop`      | `{ $pop: { field: <1 or -1> } }`            | Removes the first (`-1`) or last (`1`) element from an array.  | `{ $pop: { items: 1 } }`                              |
-| `$pull`     | `{ $pull: { field: condition } }`           | Removes all matching elements from an array.                   | `{ $pull: { tags: "obsolete" } }`                     |
-| `$pullAll`  | `{ $pullAll: { field: [values] } }`         | Removes all occurrences of the specified values.               | `{ $pullAll: { tags: ["deprecated", "old"] } }`       |
-| `$addToSet` | `{ $addToSet: { field: value } }`           | Adds an element to an array only if it does not already exist. | `{ $addToSet: { tags: "uniqueTag" } }`                |
-| `$set`      | `{ $set: { field: newValue } }`             | Updates a field, replacing an array entirely.                  | `{ $set: { items: ["NewItem1", "NewItem2"] } }`       |
-| `$each`     | `{ $push: { field: { $each: [values] } } }` | Used with `$push` or `$addToSet` to add multiple elements.     | `{ $push: { items: { $each: ["Item1", "Item2"] } } }` |
+| Operator    | Syntax                                                              | Description                                                    | Example                                               |
+| ----------- | ------------------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
+| `$push`     | `{ $push: { field: value } }`                                       | Adds an element to an array.                                   | `{ $push: { items: "Tablet" } }`                      |
+| `$pop`      | `{ $pop: { field: <1 or -1> } }`                                    | Removes the first (`-1`) or last (`1`) element from an array.  | `{ $pop: { items: 1 } }`                              |
+| `$pull`     | `{ $pull: { field: condition } }`                                   | Removes all matching elements from an array.                   | `{ $pull: { tags: "obsolete" } }`                     |
+| `$pullAll`  | `{ $pullAll: { field: [values] } }`                                 | Removes all occurrences of the specified values.               | `{ $pullAll: { tags: ["deprecated", "old"] } }`       |
+| `$addToSet` | `{ $addToSet: { field: value } }`                                   | Adds an element to an array only if it does not already exist. | `{ $addToSet: { tags: "uniqueTag" } }`                |
+| `$each`     | `{ $push: { field: { $each: [values to push into the array ] } } }` | Used with `$push` or `$addToSet` to add multiple elements.     | `{ $push: { items: { $each: ["Item1", "Item2"] } } }` |
 
 ### 📌 Array Aggregation Operators
 
