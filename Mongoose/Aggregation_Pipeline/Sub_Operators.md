@@ -2,14 +2,14 @@
 
 ## Comparison Operators
 
-| Operator | Syntax                          | Description                                                          | Example                      |
-| -------- | ------------------------------- | -------------------------------------------------------------------- | ---------------------------- |
-| `$eq`    | `{ $eq: [ "$field", value ] }`  | Checks if a field is equal to a specific value.                      | `{ $eq: [ "$price", 100 ] }` |
-| `$ne`    | `{ $ne: [ "$field", value ] }`  | Checks if a field is not equal to a specific value.                  | `{ $ne: [ "$price", 100 ] }` |
-| `$gt`    | `{ $gt: [ "$field", value ] }`  | Checks if a field's value is greater than a given value.             | `{ $gt: [ "$price", 50 ] }`  |
-| `$gte`   | `{ $gte: [ "$field", value ] }` | Checks if a field's value is greater than or equal to a given value. | `{ $gte: [ "$price", 50 ] }` |
-| `$lt`    | `{ $lt: [ "$field", value ] }`  | Checks if a field's value is less than a given value.                | `{ $lt: [ "$price", 50 ] }`  |
-| `$lte`   | `{ $lte: [ "$field", value ] }` | Checks if a field's value is less than or equal to a given value.    | `{ $lte: [ "$price", 50 ] }` |
+| Operator | Syntax                        | Description                                                     | Example                      |
+| -------- | ----------------------------- | --------------------------------------------------------------- | ---------------------------- |
+| `$eq`    | `{ $eq: [value1, value2 ] }`  | Checks if both values are equal of not                          | `{ $eq: [ "$price", 100 ] }` |
+| `$ne`    | `{ $ne: [value1, value2 ] }`  | Checks if a field is not equal to a specific value.             | `{ $ne: [ "$price", 100 ] }` |
+| `$gt`    | `{ $gt: [value1, value2 ] }`  | Checks if first value is greater than second value.             | `{ $gt: [ "$price", 50 ] }`  |
+| `$gte`   | `{ $gte: [value1, value2 ] }` | Checks if first value is greater than or equal to second value. | `{ $gte: [ "$price", 50 ] }` |
+| `$lt`    | `{ $lt: [value1, value2 ] }`  | Checks if first value is less than second values.               | `{ $lt: [ "$price", 50 ] }`  |
+| `$lte`   | `{ $lte: [value1, value2 ] }` | Checks if first value is less than or equal to second value.    | `{ $lte: [ "$price", 50 ] }` |
 
 ## Logical Operators
 
