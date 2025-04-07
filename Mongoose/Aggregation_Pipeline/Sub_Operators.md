@@ -22,13 +22,13 @@
 
 ## Arithmetic Operators
 
-| Operator    | Syntax                               | Description                        | Example                          |
-| ----------- | ------------------------------------ | ---------------------------------- | -------------------------------- |
-| `$add`      | `{ $add: [ "$field", value ] }`      | Adds numbers together.             | `{ $add: [ "$price", 10 ] }`     |
-| `$subtract` | `{ $subtract: [ "$field", value ] }` | Subtracts one number from another. | `{ $subtract: [ "$price", 5 ] }` |
-| `$multiply` | `{ $multiply: [ "$field", value ] }` | Multiplies numbers.                | `{ $multiply: [ "$price", 2 ] }` |
-| `$divide`   | `{ $divide: [ "$field", value ] }`   | Divides one number by another.     | `{ $divide: [ "$price", 2 ] }`   |
-| `$mod`      | `{ $mod: [ "$field", value ] }`      | Returns the remainder of division. | `{ $mod: [ "$price", 2 ] }`      |
+| Operator    | Syntax                               | Description                             | Example                          |
+| ----------- | ------------------------------------ | --------------------------------------- | -------------------------------- |
+| `$add`      | `{ $add: [value1, value2 ] }`        | Adds numbers together.                  | `{ $add: [ "$price", 10 ] }`     |
+| `$subtract` | `{ $subtract: [ "$field", value ] }` | Subtracts second number from first one. | `{ $subtract: [ "$price", 5 ] }` |
+| `$multiply` | `{ $multiply: [ "$field", value ] }` | Multiplies numbers.                     | `{ $multiply: [ "$price", 2 ] }` |
+| `$divide`   | `{ $divide: [ "$field", value ] }`   | Divides first number by second one.     | `{ $divide: [ "$price", 2 ] }`   |
+| `$mod`      | `{ $mod: [ "$field", value ] }`      | Returns the remainder of division.      | `{ $mod: [ "$price", 2 ] }`      |
 
 ## String Operators
 
