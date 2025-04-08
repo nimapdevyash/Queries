@@ -18,6 +18,8 @@ Let’s explore this with examples to clarify the difference.
 > Rule of Thumb: Used when you're asking MongoDB to **find documents that match
 > a condition** (like in `$match` or `$redact`).
 
+- **Operators use {} syntax**
+
 - **Structure:**
   ```js
   {
@@ -44,6 +46,8 @@ Let’s explore this with examples to clarify the difference.
 
 > Rule of Thumb: Used when you're **constructing a new value** inside a stage
 > like `$project`, `$group`, or `$addFields`.
+
+- **Operators use [] syntax**
 
 - **Structure:**
   ```js
