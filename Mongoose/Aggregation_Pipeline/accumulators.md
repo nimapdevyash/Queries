@@ -91,3 +91,11 @@ collecting items into arrays, etc.).
   calculations.
 - Always be mindful of memory consumption, especially with array accumulators
   like `$push` and `$addToSet`.
+<<<<<<< HEAD
+=======
+
+---
+
+Let me know if you want to explore **custom accumulator expressions**, **window
+function variations**, or **performance tuning with accumulators**!
+>>>>>>> a786df834f6a0976bcda77e6eef4c6dc29d93b38
