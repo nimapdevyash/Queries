@@ -1,9 +1,9 @@
-## 🔹 MongoDB `$match` Stage
+# 🔹 MongoDB `$match` Stage
 
 The `$match` stage filters documents based on specified conditions, similar to
 the `find` query, but within an aggregation pipeline.
 
-### ✅ **Operators Used in `$match`**
+## ✅ **Operators Used in `$match`**
 
 | Operator     | Description                                                   | Example                                                   | Caveats / Gotchas                                                                        |
 | ------------ | ------------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -27,7 +27,7 @@ the `find` query, but within an aggregation pipeline.
 
 ---
 
-### 📌 **Usage Example**
+## 📌 **Usage Example**
 
 ```json
 {
